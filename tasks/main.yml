@@ -3,7 +3,7 @@
 ### Create admin users
 #####################################
 
-- name: Ensure user domainjoin is present in OU=Admins,OU=Accounts,OU=Objects,DC=democloud,DC=local
+- name: Ensure user domainjoin is present in OU=Admins,OU=Accounts,OU=Objects,DC=dt,DC=democloud
   community.windows.win_domain_user:
     name: '{{ item }}'
     password: '{{ dc_password_admin }}'
@@ -16,7 +16,7 @@
 ### Create service users
 #####################################
 
-- name: Ensure user svc_ldap is present in OU=Services,OU=Accounts,OU=Objects,DC=democloud,DC=local
+- name: Ensure user svc_ldap is present in OU=Services,OU=Accounts,OU=Objects,DC=dt,DC=democloud
   community.windows.win_domain_user:
     name: '{{ item }}'
     password: '{{ dc_password_user }}'
@@ -29,7 +29,7 @@
 ### Create normal users
 #####################################
 
-- name: Ensure users are present in OU=User,OU=Accounts,OU=Objects,DC=democloud,DC=local
+- name: Ensure users are present in OU=User,OU=Accounts,OU=Objects,DC=dt,DC=democloud
   community.windows.win_domain_user:
     name: '{{ item }}'
     password: '{{ dc_password_user }}'
