@@ -6,7 +6,7 @@
 - name: Ensure user domainjoin is present in OU=Admins,OU=Accounts,OU=Objects,DC=dt,DC=democloud
   community.windows.win_domain_user:
     name: '{{ item }}'
-    password: '{{ dc_password_admin }}'
+    password: '{{ dc_password_domainjoin }}'
     state: present
     path: '{{ dc_ou_admins }}'
   loop:
@@ -19,7 +19,7 @@
 - name: Ensure user svc_ldap is present in OU=Services,OU=Accounts,OU=Objects,DC=dt,DC=democloud
   community.windows.win_domain_user:
     name: '{{ item }}'
-    password: '{{ dc_password_user }}'
+    password: '{{ dc_password_service }}'
     state: present
     path: '{{ dc_ou_services }}'
   loop:
